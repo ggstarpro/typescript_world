@@ -1,0 +1,1 @@
+https://www.udemy.com/course/understanding-typescript-jp/learn/lecture/20179052?start=15#overview
