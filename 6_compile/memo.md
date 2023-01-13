@@ -143,3 +143,11 @@ TypeScript (または JavaScript) コードをデバッグしたい場合は次�
 
 Debug: Open Linkコマンドでデバッグを開始する際には、デバッグ用の Chrome プロセスが既に起動していないか確認してください。
 すでに起動しているデバッグ用の Chrome プロセスは終了してから、Debug: Open Linkコマンドを実行してください。
+
+■リンク
+・tsconfig
+https://www.typescriptlang.org/docs/handbook/tsconfig-json.html
+.コンパイラオプション
+https://www.typescriptlang.org/docs/handbook/compiler-options.html
+・vscodeでのts debug
+https://code.visualstudio.com/docs/typescript/typescript-debugging
