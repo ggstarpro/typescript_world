@@ -51,3 +51,8 @@ StringやNumberではないので注意してください。
 ◇Any: どんな値でも良い
 
 ■Union型
+
+
+■メモ
+https://typescript-jp.gitbook.io/deep-dive/type-system
+https://www.typescriptlang.org/docs/handbook/basic-types.html

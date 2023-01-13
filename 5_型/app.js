@@ -1,10 +1,6 @@
-// どのような型になるのかわからない
-var userInput;
-var userName;
-userInput = 5;
-userInput = ' max';
-// 型 'unknown' を型 'string' に割り当てることはできません。
-// userName = userInput;
-if (typeof userInput === 'string') {
-    userName = userInput;
+function generateError(message, code) {
+    // 絶対に戻り値を返さない
+    throw { message: message, errorCode: code };
 }
+var result = generateError('エラーが発生しました', 500);
+console.log(generateError);
