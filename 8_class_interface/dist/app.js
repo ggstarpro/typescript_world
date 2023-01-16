@@ -12,7 +12,6 @@ class Department {
         console.log('Department>' + this.name);
     }
     addEmployee(employee) {
-        this.id = 'readonlyにより変わらない';
         this.employees.push(employee);
     }
     printEmployeeInfoMation() {

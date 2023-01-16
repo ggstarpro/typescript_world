@@ -16,7 +16,7 @@ class Department {
   }
 
   addEmployee(employee: string) {
-    this.id = 'readonlyにより変わらない';
+    // this.id = 'readonlyにより変わらない';
     this.employees.push(employee);
   }
   printEmployeeInfoMation()
