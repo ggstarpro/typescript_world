@@ -31,4 +31,4 @@ let addI;
 addI = (n1, n2) => {
     return n1 + n2;
 };
-//# sourceMappingURL=app%20copy.js.map
+//# sourceMappingURL=6_app_nini_interfacefunction.js.map
