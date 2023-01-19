@@ -14,3 +14,7 @@ Object
 - クラスのインスタンス
 Class
 - オブジェクトのの設計図
+
+
+・古いJSではprototypeについて理解しておくと良い
+https://developer.mozilla.org/ja/docs/Web/JavaScript/Inheritance_and_the_prototype_chain

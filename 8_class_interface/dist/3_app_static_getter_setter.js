@@ -61,4 +61,4 @@ accountingDepartment.addEmployee('Max');
 accountingDepartment.addEmployee('Manu');
 accountingDepartment.printEmployeeInfoMation();
 console.log(BaseDepartment2.createEmployee('staticMax'), BaseDepartment2.fisicalYear);
-//# sourceMappingURL=app.js.map
+//# sourceMappingURL=3_app_static_getter_setter.js.map
