@@ -1,13 +1,9 @@
 "use strict";
-class BaseDepartment2 {
+class BaseDepartment3 {
     constructor(id, name) {
         this.id = id;
         this.name = name;
         this.employees = [];
-        console.log(BaseDepartment2.fisicalYear);
-    }
-    describe() {
-        console.log(`Department (${this.id}): ${this.name}`);
     }
     addEmployee(employee) {
         this.employees.push(employee);
@@ -19,8 +15,8 @@ class BaseDepartment2 {
         return { name: name };
     }
 }
-BaseDepartment2.fisicalYear = 2020;
-class AccountingDepartment extends BaseDepartment2 {
+BaseDepartment3.fisicalYear = 2020;
+class AccountingDepartment2 extends BaseDepartment3 {
     get mostRecentReport() {
         if (this.lastReport) {
             return this.lastReport;
@@ -38,6 +34,13 @@ class AccountingDepartment extends BaseDepartment2 {
         this.reports = reports;
         this.lastReport = reports[0];
     }
+    static getInstance() {
+        if (this.instance) {
+            return this.instance;
+        }
+        this.instance = new AccountingDepartment2(Math.random().toString(), []);
+        return this.instance;
+    }
     addReport(text) {
         this.reports.push(text);
         this.lastReport = text;
@@ -51,14 +54,12 @@ class AccountingDepartment extends BaseDepartment2 {
         }
         this.employees.push(name);
     }
+    describe() {
+        console.log('AccountingDepartment>>' + this.id);
+    }
 }
-const accountingDepartment = new AccountingDepartment('d2', []);
-accountingDepartment.mostRecentReport = '通期会計レポート';
-accountingDepartment.addReport('Something');
-console.log(accountingDepartment.mostRecentReport);
-accountingDepartment.printReports();
-accountingDepartment.addEmployee('Max');
-accountingDepartment.addEmployee('Manu');
-accountingDepartment.printEmployeeInfoMation();
-console.log(BaseDepartment2.createEmployee('staticMax'), BaseDepartment2.fisicalYear);
+const accountingDepartment2 = AccountingDepartment2.getInstance();
+const accountingDepartmentTest = AccountingDepartment2.getInstance();
+console.log(accountingDepartment2);
+console.log(accountingDepartmentTest);
 //# sourceMappingURL=app%20copy.js.map

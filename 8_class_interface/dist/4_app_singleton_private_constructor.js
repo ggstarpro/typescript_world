@@ -62,4 +62,4 @@ const accountingDepartment2 = AccountingDepartment2.getInstance();
 const accountingDepartmentTest = AccountingDepartment2.getInstance();
 console.log(accountingDepartment2);
 console.log(accountingDepartmentTest);
-//# sourceMappingURL=app.js.map
+//# sourceMappingURL=4_app_singleton_private_constructor.js.map
