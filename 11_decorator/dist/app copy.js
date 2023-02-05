@@ -31,4 +31,4 @@ __decorate([
 const printer = new Printer();
 const button = document.querySelector('button');
 button.addEventListener('click', printer.showMessage);
-//# sourceMappingURL=2_autobind.js.map
+//# sourceMappingURL=app%20copy.js.map
