@@ -1,7 +1,24 @@
+// Project Type
+enum ProjectStatus {
+  Atice, Finished
+}
+
+class Project {
+  constructor(
+    public id: string,
+    public title: string,
+    public description: string,
+    public manday: number,
+    public status: ProjectStatus
+  ) {}
+}
+
+
 // 状態管理を行う Project State Management
+type Listener = (items: Project[]) => void;
 class ProjectState {
-  private listeners: any[] = [];
-  private projects: any[] = [];
+  private listeners: Listener[] = [];
+  private projects: Project[] = [];
   private static instance: ProjectState
   // シングルトン:1つのインスタンスしか存在しない
   private constructor() {
@@ -16,17 +33,19 @@ class ProjectState {
     return this.instance;
   }
 
-  addListeners(listenerFn: Function) {
+  addListeners(listenerFn: Listener) {
     this.listeners.push(listenerFn);
   }
 
   addProject(title: string, description: string, manday: number) {
-    const newProject = {
-      id: Math.random().toString(),
-      title: title,
-      description: description,
-      manday: manday
-    }
+    const newProject = new Project(
+      Math.random().toString(),
+      title,
+      description,
+      manday,
+      ProjectStatus.Atice
+    );
+
     this.projects.push(newProject);
     for (const listenerFn of this.listeners) {
       // sliceでコピーを渡す
@@ -90,7 +109,7 @@ class ProjectList {
   templateElement: HTMLTemplateElement;
   hostElement: HTMLDivElement;
   sectionElement: HTMLElement;
-  assignedProjects: any[];
+  assignedProjects: Project[];
   constructor(private type: 'active' | 'finished') {
     this.templateElement = document.getElementById('project-list')! as HTMLTemplateElement;
     this.hostElement = document.getElementById('app')! as HTMLDivElement;
@@ -98,7 +117,7 @@ class ProjectList {
     this.sectionElement.id = `${this.type}-projects`;
     this.assignedProjects = [];
 
-    projectState.addListeners((project: any[]) => {
+    projectState.addListeners((project: Project[]) => {
       this.assignedProjects = project;
       this.renderProjects();
     });
