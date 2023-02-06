@@ -80,8 +80,14 @@ class ProjectList {
         this.sectionElement = document.importNode(this.templateElement.content, true).firstElementChild;
         this.sectionElement.id = `${this.type}-projects`;
         this.assignedProjects = [];
-        projectState.addListeners((project) => {
-            this.assignedProjects = project;
+        projectState.addListeners((projects) => {
+            const relevantProjects = projects.filter(prj => {
+                if (this.type === 'active') {
+                    return prj.status === ProjectStatus.Atice;
+                }
+                return prj.status === ProjectStatus.Finished;
+            });
+            this.assignedProjects = relevantProjects;
             this.renderProjects();
         });
         this.attach();
@@ -89,6 +95,7 @@ class ProjectList {
     }
     renderProjects() {
         const listEl = document.getElementById(`${this.type}-projects`);
+        listEl.innerHTML = '';
         for (const projItem of this.assignedProjects) {
             const listItem = document.createElement('li');
             listItem.textContent = projItem.title;
@@ -127,7 +134,7 @@ class ProjectInput {
         const descriptionValidatable = {
             value: description,
             required: true,
-            minLength: 5,
+            minLength: 3,
         };
         const mandayValidatable = {
             value: +manday,
